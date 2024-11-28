@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Email handling function
     function sendMail(event) {
         event.preventDefault();
+        console.log('Form submission started');
 
         // Show loading state
         const submitBtn = document.querySelector('.submit-btn');
@@ -147,17 +148,20 @@ document.addEventListener('DOMContentLoaded', () => {
             message: document.getElementById('message').value
         };
 
+        console.log('Sending email with params:', params);
+
         emailjs.send('service_ruhaanim', 'template_uwmxknh', params)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('contactForm').reset();
-                // Fix thank you page redirect with correct path
-                window.location.href = 'https://satisoff.github.io/ProjectBMR/thank-you.html';
+                window.location.replace('thank-you.html');
             })
             .catch(function(error) {
                 console.error('FAILED...', error);
                 alert('Failed to send message. Please try again.');
-                // Reset button state
+            })
+            .finally(function() {
+                // Always reset button state
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             });
