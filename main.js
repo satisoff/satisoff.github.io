@@ -128,5 +128,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Email handling function
+    function sendMail(event) {
+        event.preventDefault();
+
+        // Show loading state
+        const submitBtn = document.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const params = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            job_category: document.getElementById('job_category').value,
+            message: document.getElementById('message').value
+        };
+
+        emailjs.send('service_ruhaanim', 'template_uwmxknh', params)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                document.getElementById('contactForm').reset();
+                window.location.href = 'thank-you.html';
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('Failed to send message. Please try again.');
+                // Reset button state
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+
+        return false;
+    }
+
     // Remove the form event listeners that were preventing submission
 });
