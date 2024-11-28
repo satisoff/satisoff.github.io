@@ -215,18 +215,21 @@
                     <p>hr@bmrmanpower.com</p>
                 </div>
             </div>
-            <form class="contact-form" data-aos="fade-left">
+            <form class="contact-form" data-aos="fade-left" action="https://formsubmit.co/ruhaanim2004@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://satisoff.github.io/ProjectBMR/thank-you.html">
+                <input type="hidden" name="_subject" value="New Job Application from BMR Manpower!">
+                <input type="hidden" name="_captcha" value="true">
                 <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Your Email" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Your Phone" required>
+                    <input type="tel" name="phone" placeholder="Your Phone" required>
                 </div>
                 <div class="form-group">
-                    <select required>
+                    <select name="job_category" required>
                         <option value="">Select Job Category</option>
                         <option value="construction">Construction</option>
                         <option value="hospitality">Hospitality</option>
@@ -235,7 +238,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea placeholder="Your Message" required></textarea>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
