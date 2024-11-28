@@ -139,9 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
 
         const params = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
+            from_name: document.getElementById('name').value,
+            to_name: "BMR Manpower",
+            reply_to: document.getElementById('email').value,
+            phone_number: document.getElementById('phone').value,
             job_category: document.getElementById('job_category').value,
             message: document.getElementById('message').value
         };
@@ -150,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('contactForm').reset();
-                window.location.href = 'thank-you.html';
+                window.location.href = '/ProjectBMR/thank-you.html';
             }, function(error) {
                 console.log('FAILED...', error);
                 alert('Failed to send message. Please try again.');
