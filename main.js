@@ -151,9 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('contactForm').reset();
-                window.location.href = '/ProjectBMR/thank-you.html';
-            }, function(error) {
-                console.log('FAILED...', error);
+                // Fix thank you page redirect with correct path
+                window.location.href = 'https://satisoff.github.io/ProjectBMR/thank-you.html';
+            })
+            .catch(function(error) {
+                console.error('FAILED...', error);
                 alert('Failed to send message. Please try again.');
                 // Reset button state
                 submitBtn.textContent = originalText;
