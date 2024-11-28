@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 document.getElementById('contactForm').reset();
-                window.location.replace('thank-you.html');
+                // Change document location
+                document.location = './thank-you.html';
             })
             .catch(function(error) {
                 console.error('FAILED...', error);
