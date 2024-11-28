@@ -128,20 +128,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Form validation and animation
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Add success animation
-            form.classList.add('success');
-            
-            // Reset form after animation
-            setTimeout(() => {
-                form.reset();
-                form.classList.remove('success');
-            }, 3000);
-        });
-    });
+    // Remove the form event listeners that were preventing submission
 });
