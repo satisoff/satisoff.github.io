@@ -153,16 +153,17 @@ document.addEventListener('DOMContentLoaded', () => {
         emailjs.send('service_ruhaanim', 'template_uwmxknh', params)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
+                // Reset form
                 document.getElementById('contactForm').reset();
-                // Change document location
-                document.location = './thank-you.html';
+                // Redirect to thank you page
+                window.location.href = 'thank-you.html';
             })
             .catch(function(error) {
                 console.error('FAILED...', error);
                 alert('Failed to send message. Please try again.');
             })
             .finally(function() {
-                // Always reset button state
+                // Reset button state
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             });
@@ -170,5 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     }
 
-    // Remove the form event listeners that were preventing submission
+    // Add event listener to form
+    document.getElementById('contactForm').addEventListener('submit', sendMail);
 });
