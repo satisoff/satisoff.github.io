@@ -139,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
 
         const params = {
-            from_name: document.getElementById('name').value,
             to_name: "BMR Manpower",
+            from_name: document.getElementById('name').value,
             reply_to: document.getElementById('email').value,
             phone_number: document.getElementById('phone').value,
             job_category: document.getElementById('job_category').value,
